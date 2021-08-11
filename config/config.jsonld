@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://linkedsoftwaredependencies.org/bundles/npm/componentsjs/^4.0.0/components/context.jsonld",
+    "https://linkedsoftwaredependencies.org/bundles/npm/iotakingdoms/^0.0.1/components/context.jsonld"
+  ],
+  "@id": "urn:iotakingdoms:App",
+  "@type": "App",
+  "logger": {
+    "@id": "urn:iotakingdoms:WinstonLogger",
+    "@type": "WinstonLogger",
+      "logLevel": {
+        "@id": "urn:iotakingdoms:env:LOG_LEVEL",
+        "@type": "Variable"
+      }
+  },
+  "server": {
+    "@id": "urn:iotakingdoms:HttpServer",
+    "@type": "HttpServer",
+    "logger": {
+      "@id": "urn:iotakingdoms:WinstonLogger",
+      "@type": "WinstonLogger",
+      "logLevel": {
+        "@id": "urn:iotakingdoms:env:LOG_LEVEL",
+        "@type": "Variable"
+      }
+    },
+    "port": {
+      "@id": "urn:iotakingdoms:env:PORT",
+      "@type": "Variable"
+    },
+    "handlers": [
+      {
+        "@id": "urn:iotakingdoms:LogHandler",
+        "@type": "LogHandler",
+        "logger": {
+          "@id": "urn:iotakingdoms:WinstonLogger",
+          "@type": "WinstonLogger",
+          "logLevel": {
+            "@id": "urn:iotakingdoms:env:LOG_LEVEL",
+            "@type": "Variable"
+          }
+        }
+      },
+      {
+        "@id": "urn:iotakingdoms:GraphQLHandler",
+        "@type": "GraphQLHandler",
+        "logger": {
+          "@id": "urn:iotakingdoms:WinstonLogger",
+          "@type": "WinstonLogger",
+          "logLevel": {
+            "@id": "urn:iotakingdoms:env:LOG_LEVEL",
+            "@type": "Variable"
+          }
+        }
+      }
+    ]
+  }
+}
