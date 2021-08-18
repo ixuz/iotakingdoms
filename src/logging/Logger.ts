@@ -1,10 +1,10 @@
 import { LogLevel } from "./LogLevel";
 
 export class Logger {
-  public readonly logLevel: string;
+  public readonly _logLevel: string;
 
   constructor(logLevel: string) {
-    this.logLevel = logLevel;
+    this._logLevel = logLevel;
   }
 
   public error(message: string): boolean {
@@ -36,6 +36,6 @@ export class Logger {
   }
 
   private shouldLog(level: LogLevel): boolean {
-    return level > LogLevel[this.logLevel as keyof typeof LogLevel];
+    return level > LogLevel[this._logLevel as keyof typeof LogLevel];
   }
 }
