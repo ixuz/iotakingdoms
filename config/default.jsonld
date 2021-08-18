@@ -13,9 +13,10 @@
         "@type": "Variable"
       }
   },
+  "services": [false],
   "server": {
-    "@id": "urn:iotakingdoms:HttpServer",
-    "@type": "HttpServer",
+    "@id": "urn:iotakingdoms:ExpressServer",
+    "@type": "ExpressServer",
     "logger": {
       "@id": "urn:iotakingdoms:WinstonLogger",
       "@type": "WinstonLogger",

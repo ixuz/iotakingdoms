@@ -1,7 +1,7 @@
 import { ILogger } from "../logging/ILogger";
 
 import { Server } from "http";
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import { Express } from "express";
 import { IServer } from "./IServer";
 
@@ -24,6 +24,10 @@ export class ExpressServer implements IServer {
     this.logger.debug(`ExpressServer starting...`);
 
     this._app = express();
+
+    const mw = (req: Request, res: Response, next: NextFunction) => {};
+
+    this._app.use(mw);
 
     for (const handler in this.handlers) {
       this.logger.debug(

@@ -1,0 +1,6 @@
+{
+  "verbose": false,
+  "watch": ["src", "config", "bin"],
+  "ext": "js,jsonld,ts",
+  "exec": "npm run build && node ./bin/iotakingdoms.js"
+}

@@ -4,6 +4,7 @@ import { IServer } from "./IServer";
 import { ILogger } from "../logging/ILogger";
 import { IncomingMessage, ServerResponse } from "http";
 import { IHandler } from "./handlers/IHandler";
+import { NextFunction } from "express";
 
 export class FastifyServer implements IServer {
   public readonly logger: ILogger;
@@ -22,6 +23,13 @@ export class FastifyServer implements IServer {
 
     this._app = fastify();
     await this._app.register(middie);
+
+    const mw = (
+      req: IncomingMessage,
+      res: ServerResponse,
+      next: NextFunction
+    ) => {};
+    this._app.use(mw);
 
     this._app.use((req: IncomingMessage, res: ServerResponse, next: any) => {
       const { method, url } = req;
