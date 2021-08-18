@@ -8,11 +8,12 @@ export * from "./init/Entrypoint";
 export * from "./init/App";
 
 // Http
-export * from "./services/http/IHttpRequest";
-export * from "./services/http/IHttpResponse";
-export * from "./services/http/IHttpHandler";
+export * from "./services/http/handlers/IHttpRequest";
+export * from "./services/http/handlers/IHttpResponse";
+export * from "./services/http/handlers/IHttpHandler";
 export * from "./services/http/HttpService";
 export * from "./services/http/ExpressService";
+export * from "./services/http/handlers/HttpHandler";
 
 // Logging
 export * from "./logging/ILogger";

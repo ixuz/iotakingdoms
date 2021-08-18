@@ -1,6 +1,6 @@
 import { ILogger } from "../../logging/ILogger";
 import { Service, ServiceStatus } from "../Service";
-import { IHttpHandler } from "./IHttpHandler";
+import { IHttpHandler } from "./handlers/IHttpHandler";
 import express, { Express } from "express";
 import { Server } from "http";
 
@@ -9,7 +9,7 @@ export class ExpressService extends Service {
   public readonly _port: number;
   public readonly _handlers: IHttpHandler[];
   public readonly _app: Express;
-  private _server?: Server;
+  private _server: Server | undefined;
 
   constructor(logger: ILogger, port: number, handlers: IHttpHandler[]) {
     super();
@@ -21,6 +21,7 @@ export class ExpressService extends Service {
   }
 
   public async start(): Promise<void> {
+    this._handlers.forEach(this.attachHandler);
     this._server = this._app.listen(this._port);
     this._logger.info(`ExpressService listening on port ${this._port}`);
     this._status = ServiceStatus.STARTED;
@@ -36,4 +37,7 @@ export class ExpressService extends Service {
     await this.stop();
     await this.start();
   }
+
+  public attachHandler = (handler: IHttpHandler) =>
+    this._app.use(handler.handle);
 }

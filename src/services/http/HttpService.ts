@@ -1,6 +1,6 @@
 import { ILogger } from "../../logging/ILogger";
 import { Service, ServiceStatus } from "../Service";
-import { IHttpHandler } from "./IHttpHandler";
+import { IHttpHandler } from "./handlers/IHttpHandler";
 import Http from "http";
 
 export class HttpService extends Service {

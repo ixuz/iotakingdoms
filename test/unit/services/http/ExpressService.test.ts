@@ -2,6 +2,7 @@ import { ExpressService } from "../../../../src/services/http/ExpressService";
 import { LogLevel } from "../../../../src/logging/LogLevel";
 import { Logger } from "../../../../src/logging/Logger";
 import { ServiceStatus } from "../../../../src/services/Service";
+import { HttpHandler } from "../../../../src/services/http/handlers/HttpHandler";
 
 describe("ExpressService", (): void => {
   it("should start, restart and stop the service", async (): Promise<void> => {
@@ -38,5 +39,17 @@ describe("ExpressService", (): void => {
     await expressService.start();
     await expressService.stop();
     expect(await expressService.status()).toBe(ServiceStatus.STOPPED);
+  });
+
+  it("should use the handler", async (): Promise<void> => {
+    const expressService = new ExpressService(
+      new Logger(LogLevel[LogLevel.DEBUG]),
+      3000,
+      [new HttpHandler()]
+    );
+    jest.spyOn(expressService, "attachHandler");
+    await expressService.start();
+    await expressService.stop();
+    expect(await expressService.attachHandler).toHaveBeenCalledTimes(1);
   });
 });

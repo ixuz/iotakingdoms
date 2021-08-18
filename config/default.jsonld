@@ -21,7 +21,12 @@
         "@id": "urn:iotakingdoms:ConsoleLogger"
       },
       "port": 3000,
-      "handlers": [false]
+      "handlers": [
+        {
+          "@id": "urn:iotakingdoms:HttpHandler",
+          "@type": "HttpHandler"
+        }
+      ]
     }
   ]
 }
