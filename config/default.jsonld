@@ -13,5 +13,14 @@
         "@type": "Variable"
       }
   },
-  "services": [false],
+  "services": [
+    {
+      "@id": "urn:iotakingdoms:HttpService",
+      "@type": "HttpService",
+      "logger": {
+        "@id": "urn:iotakingdoms:ConsoleLogger"
+      },
+      "handlers": [false]
+    }
+  ]
 }

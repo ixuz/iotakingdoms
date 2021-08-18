@@ -12,6 +12,13 @@ const { Entrypoint } = require("../dist/init/Entrypoint");
     process.kill(process.pid, "SIGUSR2");
   });
 
+  process.on("SIGINT", async () => {
+    console.log("IOTAKingdoms stopping... [SIGINT]");
+    await iotaKingdomsInstance.stop();
+    console.log("IOTAKingdoms stopped");
+    process.kill(process.pid, "SIGINT");
+  });
+
   await iotaKingdomsInstance.start();
   console.log("IOTAKingdoms started");
 })();

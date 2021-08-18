@@ -1,6 +1,6 @@
 // Common
-export * from "./common/IService";
-export * from "./common/VoidService";
+export * from "./services/IService";
+export * from "./services/Service";
 
 // Initialization
 export * from "./init/IApp";
@@ -17,7 +17,6 @@ export * from "./services/http/HttpService";
 export * from "./logging/ILogger";
 export * from "./logging/Logger";
 export * from "./logging/LogLevel";
-export * from "./logging/VoidLogger";
 export * from "./logging/ConsoleLogger";
 
 // Server
