@@ -6,7 +6,7 @@ export enum ServiceStatus {
 }
 
 export class Service implements IService {
-  private _status: ServiceStatus;
+  _status: ServiceStatus;
 
   constructor() {
     this._status = ServiceStatus.STOPPED;
