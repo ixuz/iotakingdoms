@@ -1,33 +1,34 @@
 import { ILogger } from "../../logging/ILogger";
-import { Service } from "../Service";
+import { Service, ServiceStatus } from "../Service";
 import { IHttpHandler } from "./IHttpHandler";
-import { Status } from "../Status";
 import Http from "http";
 
 export class HttpService extends Service {
   public readonly logger: ILogger;
+  public readonly port: number;
   public readonly handlers: IHttpHandler[];
   public readonly server: Http.Server;
 
-  constructor(logger: ILogger, handlers: IHttpHandler[]) {
+  constructor(logger: ILogger, port: number, handlers: IHttpHandler[]) {
     super();
     this.logger = logger;
+    this.port = port;
     this.handlers = handlers;
     this.server = Http.createServer();
   }
 
   public async start(): Promise<void> {
     this.logger.debug(`HttpService starting...`);
-    this.server.listen(3000);
-    this.logger.info(`HttpService started`);
-    this._status = Status.STARTED;
+    this.server.listen(this.port);
+    this.logger.info(`HttpService started at port ${this.port}`);
+    this._status = ServiceStatus.STARTED;
   }
 
   public async stop(): Promise<void> {
     this.logger.debug(`HttpService stopping...`);
     this.server.close();
     this.logger.info(`HttpService stopped`);
-    this._status = Status.STOPPED;
+    this._status = ServiceStatus.STOPPED;
   }
 
   public async restart(): Promise<void> {

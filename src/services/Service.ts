@@ -1,19 +1,23 @@
 import { IService } from "./IService";
-import { Status } from "./Status";
+
+export enum ServiceStatus {
+  STOPPED,
+  STARTED,
+}
 
 export class Service implements IService {
-  _status: Status;
+  _status: ServiceStatus;
 
   constructor() {
-    this._status = Status.STOPPED;
+    this._status = ServiceStatus.STOPPED;
   }
 
   async start(): Promise<void> {
-    this._status = Status.STARTED;
+    this._status = ServiceStatus.STARTED;
   }
 
   async stop(): Promise<void> {
-    this._status = Status.STOPPED;
+    this._status = ServiceStatus.STOPPED;
   }
 
   async restart(): Promise<void> {
@@ -21,7 +25,7 @@ export class Service implements IService {
     await this.start();
   }
 
-  async status(): Promise<Status> {
+  async status(): Promise<ServiceStatus> {
     return this._status;
   }
 }

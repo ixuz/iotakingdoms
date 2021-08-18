@@ -1,13 +1,21 @@
+import { IApp } from "./IApp";
 import { ILogger } from "../logging/ILogger";
 import { IService } from "../services/IService";
 
-export class App {
+export enum AppStatus {
+  STOPPED,
+  STARTED,
+}
+
+export class App implements IApp {
+  _status: AppStatus;
   public readonly logger: ILogger;
   public readonly services: IService[];
 
   constructor(logger: ILogger, services: IService[]) {
     this.logger = logger;
     this.services = services;
+    this._status = AppStatus.STOPPED;
   }
 
   public async start(): Promise<void> {
@@ -18,6 +26,7 @@ export class App {
       this.logger.info(`Started ${service.constructor.name}`);
     }
     this.logger.info(`App started`);
+    this._status = AppStatus.STARTED;
   }
 
   public async stop(): Promise<void> {
@@ -28,10 +37,15 @@ export class App {
       this.logger.info(`Stopped ${service.constructor.name}`);
     }
     this.logger.info(`App stopped`);
+    this._status = AppStatus.STOPPED;
   }
 
   public async restart(): Promise<void> {
     await this.stop();
     await this.start();
+  }
+
+  public async status(): Promise<AppStatus> {
+    return this._status;
   }
 }

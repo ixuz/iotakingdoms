@@ -1,4 +1,4 @@
-import { App } from "../../../src/init/App";
+import { App, AppStatus } from "../../../src/init/App";
 import { ILogger } from "../../../src/logging/ILogger";
 import { Logger } from "../../../src/logging/Logger";
 import { IService } from "../../../src/services/IService";
@@ -27,20 +27,24 @@ describe("App", (): void => {
   );
 
   it("can start", async (): Promise<void> => {
+    expect(await app.status()).toBe(AppStatus.STOPPED);
     await app.start();
     expect(services[0].start).toHaveBeenCalledTimes(1);
+    expect(await app.status()).toBe(AppStatus.STARTED);
   });
 
   it("can stop", async (): Promise<void> => {
     await app.start();
     await app.stop();
     expect(services[0].stop).toHaveBeenCalledTimes(1);
+    expect(await app.status()).toBe(AppStatus.STOPPED);
   });
 
   it("can restart", async (): Promise<void> => {
     await app.restart();
     expect(services[0].start).toHaveBeenCalledTimes(1);
     expect(services[0].stop).toHaveBeenCalledTimes(1);
+    expect(await app.status()).toBe(AppStatus.STARTED);
   });
 
   it("can start, then restart", async (): Promise<void> => {
@@ -48,5 +52,6 @@ describe("App", (): void => {
     await app.restart();
     expect(services[0].start).toHaveBeenCalledTimes(2);
     expect(services[0].stop).toHaveBeenCalledTimes(1);
+    expect(await app.status()).toBe(AppStatus.STARTED);
   });
 });
