@@ -1,30 +1,34 @@
 import { ILogger } from "../../logging/ILogger";
 import { Service, ServiceStatus } from "../Service";
 import { IHttpHandler } from "./IHttpHandler";
-import Http from "http";
+import express, { Express } from "express";
+import { Server } from "http";
 
-export class HttpService extends Service {
+export class ExpressService extends Service {
   public readonly _logger: ILogger;
   public readonly _port: number;
   public readonly _handlers: IHttpHandler[];
-  public readonly _server: Http.Server;
+  public readonly _app: Express;
+  private _server?: Server;
 
   constructor(logger: ILogger, port: number, handlers: IHttpHandler[]) {
     super();
     this._logger = logger;
     this._port = port;
     this._handlers = handlers;
-    this._server = Http.createServer();
+    this._app = express();
+    this._server = undefined;
   }
 
   public async start(): Promise<void> {
-    this._server.listen(this._port);
-    this._logger.info(`HttpService listening on port ${this._port}`);
+    this._server = this._app.listen(this._port);
+    this._logger.info(`ExpressService listening on port ${this._port}`);
     this._status = ServiceStatus.STARTED;
   }
 
   public async stop(): Promise<void> {
-    this._server.close();
+    if (this._server) this._server.close();
+    this._server = undefined;
     this._status = ServiceStatus.STOPPED;
   }
 

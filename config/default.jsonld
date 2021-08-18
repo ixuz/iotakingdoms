@@ -15,8 +15,8 @@
   },
   "services": [
     {
-      "@id": "urn:iotakingdoms:HttpService",
-      "@type": "HttpService",
+      "@id": "urn:iotakingdoms:ExpressService",
+      "@type": "ExpressService",
       "logger": {
         "@id": "urn:iotakingdoms:ConsoleLogger"
       },
