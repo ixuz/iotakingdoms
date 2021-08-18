@@ -1,25 +1,22 @@
 import { ILogger } from "../logging/ILogger";
-import { IServer } from "../server/IServer";
-import { Service } from "../common/Service";
 import { IService } from "../common/IService";
 
-export class App extends Service {
-  public readonly server: IServer;
+export class App {
+  public readonly logger: ILogger;
+  public readonly services: IService[];
 
-  constructor(logger: ILogger, services: IService[], server: IServer) {
-    super(logger, services);
-    this.server = server;
+  constructor(logger: ILogger, services: IService[]) {
+    this.logger = logger;
+    this.services = services;
   }
 
   public async start(): Promise<void> {
     this.logger.debug(`App starting...`);
-    await this.server.start();
     this.logger.info(`App started`);
   }
 
   public async stop(): Promise<void> {
     this.logger.debug(`App stopping...`);
-    await this.server.stop();
     this.logger.info(`App stopped`);
   }
 }

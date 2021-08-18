@@ -6,54 +6,12 @@
   "@id": "urn:iotakingdoms:App",
   "@type": "App",
   "logger": {
-    "@id": "urn:iotakingdoms:WinstonLogger",
-    "@type": "WinstonLogger",
+    "@id": "urn:iotakingdoms:ConsoleLogger",
+    "@type": "ConsoleLogger",
       "logLevel": {
         "@id": "urn:iotakingdoms:env:LOG_LEVEL",
         "@type": "Variable"
       }
   },
   "services": [false],
-  "server": {
-    "@id": "urn:iotakingdoms:ExpressServer",
-    "@type": "ExpressServer",
-    "logger": {
-      "@id": "urn:iotakingdoms:WinstonLogger",
-      "@type": "WinstonLogger",
-      "logLevel": {
-        "@id": "urn:iotakingdoms:env:LOG_LEVEL",
-        "@type": "Variable"
-      }
-    },
-    "port": {
-      "@id": "urn:iotakingdoms:env:PORT",
-      "@type": "Variable"
-    },
-    "handlers": [
-      {
-        "@id": "urn:iotakingdoms:LogHandler",
-        "@type": "LogHandler",
-        "logger": {
-          "@id": "urn:iotakingdoms:WinstonLogger",
-          "@type": "WinstonLogger",
-          "logLevel": {
-            "@id": "urn:iotakingdoms:env:LOG_LEVEL",
-            "@type": "Variable"
-          }
-        }
-      },
-      {
-        "@id": "urn:iotakingdoms:GraphQLHandler",
-        "@type": "GraphQLHandler",
-        "logger": {
-          "@id": "urn:iotakingdoms:WinstonLogger",
-          "@type": "WinstonLogger",
-          "logLevel": {
-            "@id": "urn:iotakingdoms:env:LOG_LEVEL",
-            "@type": "Variable"
-          }
-        }
-      }
-    ]
-  }
 }

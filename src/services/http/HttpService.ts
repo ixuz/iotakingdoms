@@ -1,14 +1,13 @@
-import { ILogger } from "../logging/ILogger";
-import { IServer } from "../server/IServer";
-import { Service } from "../common/Service";
-import { IService } from "../common/IService";
+import { ILogger } from "../../logging/ILogger";
+import { IService } from "../../common/IService";
 import { IHttpHandler } from "./IHttpHandler";
 
-export class HttpService extends Service {
+export class HttpService implements IService {
+  public readonly logger: ILogger;
   public readonly handlers: IHttpHandler[];
 
-  constructor(logger: ILogger, services: IService[], handlers: IHttpHandler[]) {
-    super(logger, services);
+  constructor(logger: ILogger, handlers: IHttpHandler[]) {
+    this.logger = logger;
     this.handlers = handlers;
   }
 
