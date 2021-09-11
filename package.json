@@ -17,7 +17,7 @@
     "lint:test": "eslint test",
     "test": "jest --config=./jest.coverage.config.js test --",
     "test:unit": "jest --config=./jest.coverage.config.js test/unit",
-    "test:integration": "jest --config=./jest.coverage.config.js test/integration",
+    "test:integration": "jest --coverage=false test/integration",
     "start": "node ./dist/index.js",
     "watch": "nodemon",
     "prepare": "husky install"
