@@ -22,24 +22,25 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-      - name: Configure git author
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Config Git author
         run: |
           git config user.name "GitHub Actions"
           git config user.email "<>"
-      - name: Setup Node
+      - name: Setup Nodejs runtime
         uses: actions/setup-node@v2
         with:
           node-version: "16"
-      - name: Install
+      - name: Install NPM dependencies
         run: npm install
-      - name: Lint
+      - name: Static code analysis
         run: npm run lint
-      - name: Unit test
+      - name: Run unit tests
         run: npm run test:unit
-      - name: Integration test
+      - name: Run integration tests
         run: npm run test:integration
       - name: Bump version, tag and generate changelog
         uses: qzb/standard-version-action@v1.0.1
-      - name: Push changes
+      - name: Push changes to target branch
         run: git push
