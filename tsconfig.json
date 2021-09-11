@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "declaration": true,
+    "incremental": true,
+    "inlineSources": true,
+    "newLine": "lf",
+    "outDir": "dist",
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "stripInternal": true,
+    "typeRoots": ["types", "node_modules/@types"],
+    "noImplicitAny": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}
