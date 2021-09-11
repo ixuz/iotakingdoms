@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.0.4 (2021-09-11)
+
+
+### Bug Fixes
+
+* npm script 'test' now runs both 'test:unit' and 'test:integration' ([36943e4](https://github.com/ixuz/iotakingdoms/commit/36943e43f4d52449cfdd678eedd6238dcd3e3edc))
+
 ### 0.0.3 (2021-09-11)
 
 
