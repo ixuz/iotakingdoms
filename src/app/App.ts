@@ -1,11 +1,11 @@
 import { injectable, inject } from "tsyringe";
-import { ILogger } from "./ILogger";
+import { ILogger } from "../logger/ILogger";
 
 @injectable()
 export class App {
   private readonly logger: ILogger;
 
-  constructor(@inject("ILogger") logger: ILogger) {
+  constructor(@inject("Logger") logger: ILogger) {
     this.logger = logger;
   }
 

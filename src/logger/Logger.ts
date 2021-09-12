@@ -1,12 +1,12 @@
 import { ILogger } from "./ILogger";
 import { injectable, inject } from "tsyringe";
-import { IConfig } from "./IConfig";
+import { IConfig } from "../config/IConfig";
 import { LogLevel } from "./LogLevel";
 
 @injectable()
 export class Logger implements ILogger {
   private readonly config: IConfig;
-  constructor(@inject("IConfig") config: IConfig) {
+  constructor(@inject("Config") config: IConfig) {
     this.config = config;
   }
 

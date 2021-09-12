@@ -1,7 +1,7 @@
-import { Logger } from "../../src/Logger";
-import { LogLevel } from "../../src/LogLevel";
-import { IConfig } from "../../src/IConfig";
-import { ILogger } from "../../src/ILogger";
+import { Logger } from "../../../src/logger/Logger";
+import { LogLevel } from "../../../src/logger/LogLevel";
+import { IConfig } from "../../../src/config/IConfig";
+import { ILogger } from "../../../src/logger/ILogger";
 
 const Config = jest.fn().mockImplementation(() => ({
   logLevel: jest.fn(),

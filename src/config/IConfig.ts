@@ -1,4 +1,4 @@
-import { LogLevel } from "./LogLevel";
+import { LogLevel } from "../logger/LogLevel";
 
 export interface IConfig {
   logLevel(): LogLevel;

@@ -1,5 +1,5 @@
-import { App } from "../../src/App";
-import { ILogger } from "../../src/ILogger";
+import { App } from "../../../src/app/App";
+import { ILogger } from "../../../src/logger/ILogger";
 
 const Logger = jest.fn().mockImplementation(() => ({
   debug: jest.fn(),
