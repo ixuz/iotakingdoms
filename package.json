@@ -1,7 +1,7 @@
 {
   "name": "iotakingdoms",
   "version": "0.0.1",
-  "description": "",
+  "description": "An IOTA based app",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
