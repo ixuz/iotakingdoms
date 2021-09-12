@@ -3,17 +3,17 @@ import { ILogger } from "../logger/ILogger";
 
 @injectable()
 export class App {
-  private readonly logger: ILogger;
+  private readonly _logger: ILogger;
 
   constructor(@inject("Logger") logger: ILogger) {
-    this.logger = logger;
+    this._logger = logger;
   }
 
   start(): void {
-    this.logger.info("App started");
+    this._logger.info("App started");
   }
 
   stop(): void {
-    this.logger.info("App stopped");
+    this._logger.info("App stopped");
   }
 }

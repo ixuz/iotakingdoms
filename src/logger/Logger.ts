@@ -5,9 +5,9 @@ import { LogLevel } from "./LogLevel";
 
 @injectable()
 export class Logger implements ILogger {
-  private readonly config: IConfig;
+  private readonly _config: IConfig;
   constructor(@inject("Config") config: IConfig) {
-    this.config = config;
+    this._config = config;
   }
 
   debug(msg: string): void {
@@ -34,7 +34,7 @@ export class Logger implements ILogger {
     console.log(`[${LogLevel[level]}]: ${msg}`);
   }
 
-  checkLogLevel(level: LogLevel): boolean {
-    return level <= this.config.logLevel();
+  private checkLogLevel(level: LogLevel): boolean {
+    return level <= this._config.logLevel();
   }
 }
