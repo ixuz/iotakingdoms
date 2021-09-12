@@ -4,3 +4,4 @@ componentsjs-error-state.json
 tsconfig.tsbuildinfo
 coverage
 database.sqlite
+**/.DS_Store
