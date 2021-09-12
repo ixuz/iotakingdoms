@@ -1,3 +1,9 @@
 # Iotakingdoms
 
-TBD
+## Build
+
+```
+npm install
+npm run all
+npm start
+```
