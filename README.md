@@ -14,6 +14,8 @@ npm start
 
 ## Test
 
+Here's some testing instructions
+
 ```
 npm run test
 ```
