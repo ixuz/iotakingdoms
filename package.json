@@ -23,7 +23,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anton Wiklund",
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
