@@ -22,11 +22,9 @@ export class HttpServer implements IHttpServer {
   async start(): Promise<void> {
     const app = express();
 
-    this._server = app.listen(
-      this._port /*, () => {
-      this._logger.info(`HttpServer started at http://localhost:${this._port}`);
-    }*/
-    );
+    this._server = app.listen(this._port);
+
+    this._logger.info(`HttpServer started at http://localhost:${this._port}`);
   }
 
   async stop(): Promise<void> {
