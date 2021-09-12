@@ -11,6 +11,7 @@ export class Config implements IConfig {
   }
 
   logLevel(): LogLevel {
+    console.log("Config LogLevel: ", this._logLevel);
     return this._logLevel;
   }
 }

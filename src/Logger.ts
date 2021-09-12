@@ -11,22 +11,22 @@ export class Logger implements ILogger {
   }
 
   debug(msg: string): void {
-    if (this.checkLogLevel(LogLevel.DEBUG)) return;
+    if (!this.checkLogLevel(LogLevel.DEBUG)) return;
     this.log(LogLevel.DEBUG, msg);
   }
 
   error(msg: string): void {
-    if (this.checkLogLevel(LogLevel.ERROR)) return;
+    if (!this.checkLogLevel(LogLevel.ERROR)) return;
     this.log(LogLevel.ERROR, msg);
   }
 
   warn(msg: string): void {
-    if (this.checkLogLevel(LogLevel.WARN)) return;
+    if (!this.checkLogLevel(LogLevel.WARN)) return;
     this.log(LogLevel.WARN, msg);
   }
 
   info(msg: string): void {
-    if (this.checkLogLevel(LogLevel.INFO)) return;
+    if (!this.checkLogLevel(LogLevel.INFO)) return;
     this.log(LogLevel.INFO, msg);
   }
 
@@ -34,7 +34,7 @@ export class Logger implements ILogger {
     console.log(`[${LogLevel[level]}]: ${msg}`);
   }
 
-  checkLogLevel(logLevel: LogLevel): boolean {
-    return logLevel < this.config.logLevel();
+  checkLogLevel(level: LogLevel): boolean {
+    return level <= this.config.logLevel();
   }
 }

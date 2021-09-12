@@ -1,6 +1,5 @@
 import { injectable, inject } from "tsyringe";
 import { ILogger } from "./ILogger";
-import { LogLevel } from "./LogLevel";
 
 @injectable()
 export class App {
@@ -11,10 +10,10 @@ export class App {
   }
 
   start(): void {
-    this.logger.log(LogLevel.INFO, "App started");
+    this.logger.info("App started");
   }
 
   stop(): void {
-    this.logger.log(LogLevel.INFO, "App stopped");
+    this.logger.info("App stopped");
   }
 }
