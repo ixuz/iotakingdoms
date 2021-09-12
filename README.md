@@ -1,5 +1,7 @@
 # Iotakingdoms
 
+A stateless server
+
 ## Build
 
 Let's build the app with the following command sequence:
