@@ -6,8 +6,9 @@ describe("Config", () => {
     jest.resetAllMocks();
   });
 
-  it("runs.", () => {
-    const config = new Config(LogLevel.INFO);
-    expect(config.logLevel()).toBe(LogLevel.INFO);
+  it("sets up the config properties.", () => {
+    const config = new Config(LogLevel.DEBUG, 4000);
+    expect(config.logLevel()).toBe(LogLevel.DEBUG);
+    expect(config.port()).toBe(4000);
   });
 });
