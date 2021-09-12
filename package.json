@@ -1,7 +1,7 @@
 {
   "name": "iotakingdoms",
   "version": "0.0.1",
-  "description": "",
+  "description": "An IOTA based app",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -23,7 +23,7 @@
     "prepare": "husky install"
   },
   "keywords": [],
-  "author": "",
+  "author": "Anton Wiklund",
   "license": "MIT",
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
