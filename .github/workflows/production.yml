@@ -41,4 +41,6 @@ jobs:
       - name: Bump version, tag and generate changelog
         uses: qzb/standard-version-action@v1.0.1
       - name: Push changes to target branch
-        run: git push
+        run: |
+          git push
+          git push --tags
