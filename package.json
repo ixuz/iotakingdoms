@@ -44,7 +44,8 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "save-dev": "^0.0.1-security",
-    "tsyringe": "^4.6.0"
+    "tsyringe": "^4.6.0",
+    "yargs": "^17.1.1"
   },
   "files": [
     "config",

@@ -1,5 +1,5 @@
-import { Config } from "../../src/Config";
-import { LogLevel } from "../../src/LogLevel";
+import { Config } from "../../../src/config/Config";
+import { LogLevel } from "../../../src/logger/LogLevel";
 
 describe("Config", () => {
   beforeEach(() => {

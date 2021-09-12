@@ -1,6 +1,6 @@
 import { IConfig } from "./IConfig";
 import { inject, injectable } from "tsyringe";
-import { LogLevel } from "./LogLevel";
+import { LogLevel } from "../logger/LogLevel";
 
 @injectable()
 export class Config implements IConfig {
