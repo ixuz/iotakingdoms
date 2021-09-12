@@ -11,3 +11,9 @@ npm install
 npm run all
 npm start
 ```
+
+## Test
+
+```
+npm run test
+```
