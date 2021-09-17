@@ -34,6 +34,8 @@ jobs:
           node-version: "16"
       - name: Install NPM dependencies
         run: npm ci
+      - name: Code generation and build
+        run: npm run build
       - name: Static code analysis
         run: npm run lint
       - name: Run unit tests
